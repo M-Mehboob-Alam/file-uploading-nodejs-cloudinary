@@ -9,7 +9,10 @@ const PORT = process.env.PORT || 8000;
 // processing request bodies
 app.use(express.json());
 // uploading file 
-app.use(fildUpload());
+app.use(fildUpload({
+    useTempFiles : true,
+    tempFileDir : '/tmp/'
+}));
 // cookie parser
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
